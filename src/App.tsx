@@ -3,7 +3,6 @@ import { Toast } from "primereact/toast";
 import GameBoard from "@/pages/GameBoard";
 import Keyboard from "@/pages/GameBoard/components/Keyboard";
 import { useWordleGame } from "@/pages/GameBoard/hooks/useWordleGame";
-import { getRandomWord } from "@/pages/GameBoard/utils/getRandomWord";
 
 const App: React.FC = () => {
   const {
@@ -15,7 +14,7 @@ const App: React.FC = () => {
     handleKeyPress,
     handleRestart,
     keyword,
-  } = useWordleGame({ initialKeyword: getRandomWord() });
+  } = useWordleGame();
 
   return (
     <>

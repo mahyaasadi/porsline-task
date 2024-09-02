@@ -2,11 +2,7 @@ import { useState, useEffect } from "react";
 import { useToast } from "@/pages/GameBoard/hooks/useToast";
 import { getRandomWord } from "@/pages/GameBoard/utils/getRandomWord";
 
-type UseWordleGameProps = {
-  initialKeyword?: string;
-};
-
-export const useWordleGame = ({ initialKeyword }: UseWordleGameProps) => {
+export const useWordleGame = () => {
   const { toastRef, showSuccess, showError } = useToast();
 
   const [board, setBoard] = useState<string[][]>(
@@ -15,7 +11,7 @@ export const useWordleGame = ({ initialKeyword }: UseWordleGameProps) => {
   const [currentRow, setCurrentRow] = useState<number>(0);
   const [currentCol, setCurrentCol] = useState<number>(0);
   const [correctRow, setCorrectRow] = useState<number | null>(null);
-  const [keyword, setKeyword] = useState<string>("CLAIM");
+  const [keyword, setKeyword] = useState<string>(getRandomWord());
   const [attempts, setAttempts] = useState<number>(0);
   const [gameOver, setGameOver] = useState<boolean>(false);
 
@@ -73,7 +69,7 @@ export const useWordleGame = ({ initialKeyword }: UseWordleGameProps) => {
     setAttempts(0);
     setGameOver(false);
     setCorrectRow(null);
-    setKeyword(getRandomWord());
+    setKeyword(getRandomWord()); // generate a new random word
   };
 
   useEffect(() => {

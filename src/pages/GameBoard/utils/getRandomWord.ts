@@ -7,6 +7,7 @@ const randomWordsList = [
   "CLOUD",
   "TRUST",
   "WASTE",
+  "FRONT"
 ];
 
 export const getRandomWord = (): string => {
